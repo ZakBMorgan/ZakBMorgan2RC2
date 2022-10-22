@@ -9,6 +9,7 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.kauailabs.navx.frc.AHRS;
 
+import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
@@ -41,6 +42,9 @@ right.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
   public void resetEncoders(){
     left.setSelectedSensorPosition(0);
     right.setSelectedSensorPosition(0);
+  }
+  public double getAngle(){
+    return navx.getAngle();
   }
   @Override
   public void periodic() {
